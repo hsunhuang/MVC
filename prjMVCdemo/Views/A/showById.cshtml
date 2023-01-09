@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "showById";
+    string photo = "nobody.jpg";
+    if(ViewBag.kk!=null)
+    {
+        photo = ViewBag.kk.fid+".jpg";
+    }
+}
+
+<h2>繫結物件範例</h2>
+<img src="~/img/@photo" width="280" height="300" />
+@{ 
+    if(ViewBag.kk != null)
+    {
+    <h1>@ViewBag.kk.fName</h1>
+    @ViewBag.kk.fPhone
+    }
+    else
+            {
+                @:查無資料
+            }
+    }
+
