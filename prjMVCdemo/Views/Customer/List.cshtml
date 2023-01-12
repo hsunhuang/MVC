@@ -19,6 +19,8 @@
         <td>電子郵件</td>
         <td>地址</td>
         <td>密碼</td>
+        <td>編輯</td>
+        <td>刪除</td>
     </tr>
     @{ 
         int count = 0;
@@ -32,6 +34,8 @@
             <td>@t.fEmail</td>
             <td>@t.fAddress</td>
             <td>@t.fPassword</td>
+            <td>@Html.ActionLink("編輯", "Edit", "Customer", new { id = t.fid }, null)</td>
+            <td>@Html.ActionLink("刪除", "Delete", "Customer", new { id = t.fid }, new { onclick = "return confirm('確定要刪除嗎?')" })</td>
         </tr>
 
         }

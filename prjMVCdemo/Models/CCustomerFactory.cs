@@ -166,22 +166,22 @@ namespace prjMVCdemo.Models
                 sql += "@K_FName,";
                 paras.Add(new SqlParameter("K_FName", (object)p.fName));
             }
-            if (!string.IsNullOrEmpty(p.fName))
+            if (!string.IsNullOrEmpty(p.fPhone))
             {
                 sql += "@K_FPHONE,";
                 paras.Add(new SqlParameter("K_FPHONE", (object)p.fPhone));
             }
-            if (!string.IsNullOrEmpty(p.fName))
+            if (!string.IsNullOrEmpty(p.fEmail))
             {
                 sql += "@K_FEMAIL,";
                 paras.Add(new SqlParameter("K_FEMAIL", (object)p.fEmail));
             }
-            if (!string.IsNullOrEmpty(p.fName))
+            if (!string.IsNullOrEmpty(p.fAddress))
             {
                 sql += "@K_FADDRESS,";
                 paras.Add(new SqlParameter("K_FADDRESS", (object)p.fAddress));
             }
-            if (!string.IsNullOrEmpty(p.fName))
+            if (!string.IsNullOrEmpty(p.fPassword))
             {
                 sql += "@K_FPASSWORD,";
                 paras.Add(new SqlParameter("K_FPASSWORD", (object)p.fPassword));

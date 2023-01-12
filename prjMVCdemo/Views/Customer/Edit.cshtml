@@ -1,0 +1,33 @@
+﻿@model prjMVCdemo.Models.CCustomer
+@{
+    ViewBag.Title = "Edit";
+}
+
+@*不指定action就呼叫自己*@
+<h2>修改客戶作業</h2>
+<form method="post">
+    <div>
+        姓名<br />
+        <input type="text" name="txtName" value="@Model.fName" />
+    </div>
+    <div>
+        電話<br />
+        <input type="text" name="txtPhone" value="@Model.fPhone" />
+    </div>
+    <div>
+        郵件<br />
+        <input type="text" name="txtEmail" value="@Model.fEmail" />
+    </div>
+    <div>
+        地址<br />
+        <input type="text" name="txtAddress" value="@Model.fAddress" />
+    </div>
+    <div>
+        密碼<br />
+        <input type="text" name="txtPassword" value="@Model.fPassword" />
+    </div>
+
+    <div>
+        <p> <input type="submit" vlaue="送出" /></p>
+    </div>
+</form>
