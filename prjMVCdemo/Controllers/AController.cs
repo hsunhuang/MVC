@@ -14,10 +14,21 @@ namespace prjMVCdemo.Controllers
 
     public class AController : Controller
     {
+        public ActionResult demoUpload()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult demoUpload(HttpPostedFileBase photo)
+        {
+            photo.SaveAs(@"C:\QNote\codes\slnMVCdemo\prjMVCdemo\img\test.jpg");
+            return View();
+        }
+
         public ActionResult demoForm()
         {
             //相加的公式
-            ViewBag.ANS = "?";
+            ViewBag.ANS = " ? ";
             if (!string.IsNullOrEmpty(Request.Form["txtA"]))
             {
                 double a = Convert.ToDouble(Request.Form["txtA"]);

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="dbDemoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="dbDemoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tProduct">
           <Key>
             <PropertyRef Name="fid" />
@@ -15,11 +15,22 @@
           <Property Name="fCost" Type="money" />
           <Property Name="fPrice" Type="money" />
         </EntityType>
+        <EntityType Name="tShoppingCart">
+          <Key>
+            <PropertyRef Name="fid" />
+          </Key>
+          <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="fCustomerid" Type="int" />
+          <Property Name="fProductid" Type="int" />
+          <Property Name="fCount" Type="int" />
+          <Property Name="fPrice" Type="money" />
+        </EntityType>
         <EntityContainer Name="dbDemoModelStoreContainer">
           <EntitySet Name="tProduct" EntityType="Self.tProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tShoppingCart" EntityType="Self.tShoppingCart" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="dbDemoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -35,7 +46,19 @@
         </EntityType>
         <EntityContainer Name="dbDemoEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tProduct" EntityType="Self.tProduct" />
+          <EntitySet Name="tShoppingCart" EntityType="dbDemoModel.tShoppingCart" />
         </EntityContainer>
+        <EntityType Name="tShoppingCart">
+          <Key>
+            <PropertyRef Name="fid" />
+          </Key>
+          <Property Name="fid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fCustomerid" Type="Int32" />
+          <Property Name="fProductid" Type="Int32" />
+          <Property Name="fCount" Type="Int32" />
+          <Property Name="fPrice" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -50,6 +73,18 @@
                 <ScalarProperty Name="fQty" ColumnName="fQty" />
                 <ScalarProperty Name="fCost" ColumnName="fCost" />
                 <ScalarProperty Name="fPrice" ColumnName="fPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tShoppingCart">
+            <EntityTypeMapping TypeName="dbDemoModel.tShoppingCart">
+              <MappingFragment StoreEntitySet="tShoppingCart">
+                <ScalarProperty Name="fPrice" ColumnName="fPrice" />
+                <ScalarProperty Name="fCount" ColumnName="fCount" />
+                <ScalarProperty Name="fProductid" ColumnName="fProductid" />
+                <ScalarProperty Name="fCustomerid" ColumnName="fCustomerid" />
+                <ScalarProperty Name="fDate" ColumnName="fDate" />
+                <ScalarProperty Name="fid" ColumnName="fid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

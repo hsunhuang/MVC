@@ -12,12 +12,13 @@ namespace prjMVCdemo
     using System;
     using System.Collections.Generic;
     
-    public partial class tProduct
+    public partial class tShoppingCart
     {
         public int fid { get; set; }
-        public string fName { get; set; }
-        public Nullable<int> fQty { get; set; }
-        public Nullable<decimal> fCost { get; set; }
+        public string fDate { get; set; }
+        public Nullable<int> fCustomerid { get; set; }
+        public Nullable<int> fProductid { get; set; }
+        public Nullable<int> fCount { get; set; }
         public Nullable<decimal> fPrice { get; set; }
     }
 }

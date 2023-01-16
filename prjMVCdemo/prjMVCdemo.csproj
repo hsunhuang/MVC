@@ -143,6 +143,7 @@
     <Compile Include="Controllers\AController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ShoppingController.cs" />
     <Compile Include="dbDemo.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -168,6 +169,10 @@
     <Compile Include="tProduct.cs">
       <DependentUpon>dbDemo.tt</DependentUpon>
     </Compile>
+    <Compile Include="tShoppingCart.cs">
+      <DependentUpon>dbDemo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\CAddToCartViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -194,6 +199,9 @@
     <Content Include="Views\Product\List.cshtml" />
     <Content Include="Views\Product\Create.cshtml" />
     <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Shopping\List.cshtml" />
+    <Content Include="Views\Shopping\AddToCart.cshtml" />
+    <Content Include="Views\A\demoUpload.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
