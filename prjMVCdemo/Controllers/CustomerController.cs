@@ -12,6 +12,27 @@ namespace prjMVCdemo.Controllers
     public class CustomerController : Controller
     {
         // GET: Customer
+        //兩個方法名稱一樣會模稜兩可 無法辨識(在MVC裡面方法是代表網址)
+        [HttpPost]
+        public ActionResult Edit(CCustomer p)
+        {
+            //快速法
+            (new CCustomerFactory()).update(p);
+            return RedirectToAction("List");
+
+
+            //腳踏實地法
+            //CCustomer x = new CCustomer();
+            //x.fid = Convert.ToInt32( Request.Form["txtFid"]);
+            //x.fName = Request.Form["txtName"];
+            //x.fPhone = Request.Form["txtPhone"];
+            //x.fEmail = Request.Form["txtEmail"];
+            //x.fAddress = Request.Form["txtAdress"];
+            //x.fPassword = Request.Form["txtPassword"];
+            //(new CCustomerFactory()).update(x);
+            //return RedirectToAction("List");
+        }
+
 
         //修改
         public ActionResult Edit(int? id)
@@ -44,7 +65,13 @@ namespace prjMVCdemo.Controllers
         {
             //撈取所有客戶資料
             List<CCustomer> datas=(new CCustomerFactory()).queryAll();
+            string keyword = Request.Form["txtKeyword"];
+            if(string.IsNullOrEmpty(keyword))
+                datas = (new CCustomerFactory()).queryAll();
+            else
+                datas=(new CCustomerFactory()).queryByKeyword(keyword);
             return View(datas);
+
         }
 
         public ActionResult Create()

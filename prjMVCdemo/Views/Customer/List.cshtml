@@ -11,7 +11,17 @@
         </p>
     </div>
 
-<table border="1">
+    @using(Html.BeginForm())
+            {
+                <p>
+                    關鍵字
+                    @Html.TextBox("txtKeyword")
+                    <input type="submit" value="查詢"/>
+                </p>
+            }
+
+
+<table border="1" class="table table-striped">
     <tr>
         <td>序號</td>
         <td>姓名</td>
@@ -34,8 +44,8 @@
             <td>@t.fEmail</td>
             <td>@t.fAddress</td>
             <td>@t.fPassword</td>
-            <td>@Html.ActionLink("編輯", "Edit", "Customer", new { id = t.fid }, null)</td>
-            <td>@Html.ActionLink("刪除", "Delete", "Customer", new { id = t.fid }, new { onclick = "return confirm('確定要刪除嗎?')" })</td>
+            <td>@Html.ActionLink("編輯", "Edit", "Customer", new { id = t.fid }, new { @class="btn btn-success" })</td>
+            <td>@Html.ActionLink("刪除", "Delete", "Customer", new { id = t.fid }, new { onclick = "return confirm('確定要刪除嗎?')",Class="btn btn-danger" })</td>
         </tr>
 
         }

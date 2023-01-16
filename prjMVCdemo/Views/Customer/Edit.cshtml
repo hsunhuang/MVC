@@ -7,24 +7,27 @@
 <h2>修改客戶作業</h2>
 <form method="post">
     <div>
+        <input type="hidden" name="fid" value="@Model.fid" />
+    </div>
+    <div>
         姓名<br />
-        <input type="text" name="txtName" value="@Model.fName" />
+        <input type="text" name="fName" value="@Model.fName" />
     </div>
     <div>
         電話<br />
-        <input type="text" name="txtPhone" value="@Model.fPhone" />
+        <input type="text" name="fPhone" value="@Model.fPhone" />
     </div>
     <div>
         郵件<br />
-        <input type="text" name="txtEmail" value="@Model.fEmail" />
+        <input type="text" name="fEmail" value="@Model.fEmail" />
     </div>
     <div>
         地址<br />
-        <input type="text" name="txtAddress" value="@Model.fAddress" />
+        <input type="text" name="fAddress" value="@Model.fAddress" />
     </div>
     <div>
         密碼<br />
-        <input type="text" name="txtPassword" value="@Model.fPassword" />
+        <input type="text" name="fPassword" value="@Model.fPassword" />
     </div>
 
     <div>
