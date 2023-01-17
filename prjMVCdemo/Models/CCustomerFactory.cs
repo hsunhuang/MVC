@@ -5,6 +5,7 @@ using System.Data.SqlTypes;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Razor.Tokenizer.Symbols;
 using System.Web.UI.WebControls.WebParts;
 
 namespace prjMVCdemo.Models
@@ -203,5 +204,17 @@ namespace prjMVCdemo.Models
             return queryBySql(sql, paras);
 
         }
+
+        public CCustomer queryByEmail(string email)
+        {
+            string sql = "SELECT * FROM tCustomer WHERE fEmail=@K_FEMAIL";
+            List<SqlParameter> paras = new List<SqlParameter>();
+            paras.Add(new SqlParameter("@K_FEMAIL",(object)email));
+            List<CCustomer> list=queryBySql(sql, paras);
+            if (list.Count == 0)
+                return null;
+            return list[0];
+        }
+
     }
 }

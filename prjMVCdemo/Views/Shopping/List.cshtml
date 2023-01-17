@@ -6,7 +6,7 @@
 
 <h2>購物車</h2>
 <p>
-    @Html.ActionLink("檢視購物車", "Create")
+    @Html.ActionLink("檢視購物車", "CartView")
 </p>
 <table class="table">
     <tr>
@@ -36,6 +36,8 @@
                     @count
                 </td>
                 <td>
+                    <img src="~/img/@item.fImagePath" width="200" height="180" />
+                    <br />
                     @Html.DisplayFor(modelItem => item.fName)
                 </td>
                 <td>
@@ -47,8 +49,8 @@
                 </td>
                 <td>
                     @Html.ActionLink("加入購物車", "AddToCart","Shopping", new { id=item.fid  }, new { @class = "btn btn-warning" }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    @Html.ActionLink("加入 Session", "AddToSession", new { id = item.fid }, new { @class = "btn btn-success" }) |
+                    @*@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
                 </td>
             </tr>
         }

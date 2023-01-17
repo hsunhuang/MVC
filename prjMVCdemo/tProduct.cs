@@ -11,7 +11,8 @@ namespace prjMVCdemo
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Web;
+
     public partial class tProduct
     {
         public int fid { get; set; }
@@ -19,5 +20,8 @@ namespace prjMVCdemo
         public Nullable<int> fQty { get; set; }
         public Nullable<decimal> fCost { get; set; }
         public Nullable<decimal> fPrice { get; set; }
+        public string fImagePath { get; set; }
+
+        public HttpPostedFileBase photo { get; set; }
     }
 }

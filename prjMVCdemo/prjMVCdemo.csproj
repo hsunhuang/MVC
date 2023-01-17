@@ -141,6 +141,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AController.cs" />
+    <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ShoppingController.cs" />
@@ -164,7 +165,9 @@
     </Compile>
     <Compile Include="Models\CCustomer.cs" />
     <Compile Include="Models\CCustomerFactory.cs" />
+    <Compile Include="Models\CDictionary.cs" />
     <Compile Include="Models\ClottoGen.cs" />
+    <Compile Include="Models\CShoppingCartItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tProduct.cs">
       <DependentUpon>dbDemo.tt</DependentUpon>
@@ -173,6 +176,7 @@
       <DependentUpon>dbDemo.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\CAddToCartViewModel.cs" />
+    <Compile Include="ViewModels\CLoginViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -202,6 +206,13 @@
     <Content Include="Views\Shopping\List.cshtml" />
     <Content Include="Views\Shopping\AddToCart.cshtml" />
     <Content Include="Views\A\demoUpload.cshtml" />
+    <Content Include="Views\A\showCount.cshtml" />
+    <Content Include="Views\A\showCountBySession.cshtml" />
+    <Content Include="Views\A\showCountByCookies.cshtml" />
+    <Content Include="Views\Shopping\AddToSession.cshtml" />
+    <Content Include="Views\Shopping\CartView.cshtml" />
+    <Content Include="Views\Common\Login.cshtml" />
+    <Content Include="Views\Common\Home.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
